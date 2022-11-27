@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
-import WeatherInfo from './components/WeatherInfo';
-import Search from "./components/Search";
+import WeatherInfo from './components/WeatherInfo/WeatherInfo';
+import Search from "./components/Search/Search";
 
 
 const baseURL = "https://api.openweathermap.org/data/2.5/weather";
@@ -13,7 +13,7 @@ function App() {
   const [weatherIcon, setWeatherIcon] = React.useState(null);
 
   React.useEffect(() => {
-    getWeatherData("sao paulo");
+    getWeatherData("izmir");
   } ,[])
 
   const getWeatherData = async(city) => {
@@ -27,15 +27,12 @@ function App() {
       console.log(error);
     }
   }
-
-
-   
+ 
 
   return (
     <div className="App">
-      <h2>weather api</h2>
-      <img src={weatherIcon} alt="weather icon" />
-      <Search searchCity={searchCity} setSearchCity={setSearchCity} />
+      <h2>weather </h2>
+      <Search searchCity={searchCity} setSearchCity={setSearchCity} getWeatherData={getWeatherData} />
       <WeatherInfo icon={weatherIcon} cityInfo={cityData} />
     </div>
   );
