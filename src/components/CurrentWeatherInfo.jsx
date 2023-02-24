@@ -53,7 +53,7 @@ function CurrentWeatherInfo(props) {
             <p>
               {currentWeather.wind.speed}
               <span>mph</span>
-            </p>
+            </p> 
             <p>Wind</p>
           </div>
           <div className="humidity">
@@ -64,7 +64,7 @@ function CurrentWeatherInfo(props) {
             <p>Humidity</p>
           </div>
         </div>
-        <div>
+        <div className="sunrise-sunset">
           <div>
             <span>{sunrise}</span>
             <p>sunrise </p>

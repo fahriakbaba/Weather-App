@@ -122,6 +122,15 @@ body {
   border-radius: var(--radius);
 }
 
+.wind-humidity, .sunrise-sunset, .temp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--normal);
+  text-align: center;
+}
+
 /* current weather end*/
 
 /* loading start*/
