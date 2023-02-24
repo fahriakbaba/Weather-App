@@ -3,6 +3,7 @@ import React from 'react';
 import CurrentWeatherInfo from './components/CurrentWeatherInfo';
 import Search from "./components/Search";
 import Loading from './components/Loading';
+import ForeCast from "./components/ForeCast"
  
 
 
@@ -46,8 +47,8 @@ function App() {
       <div className="container">
         <h2>weather app</h2>
         <Search searchCity={searchCity} setSearchCity={setSearchCity} getWeatherData={getWeatherData} />
-        <CurrentWeatherInfo currentWeather={currentWeather} forecast={forecast}/>
-        {/* <ForeCast forecast={forecast} /> */}
+        <CurrentWeatherInfo currentWeather={currentWeather} />
+        <ForeCast forecast={forecast} />
       </div>
     </div>
   );

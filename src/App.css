@@ -160,8 +160,50 @@ body {
   gap: var(--normal);
   text-align: center;
 }
-
 /* current weather end*/
+
+/* forecast start*/
+.forecast {
+  display: flex;
+  flex-direction: column;
+  gap: .1rem;
+  margin-top: var(--x_large);
+  padding: 1% 0;
+}
+
+.forecast h5 {
+  font-size: var(--normal);
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.forecast div {
+  display: flex;
+  justify-content: flex-start;
+  margin-right: var(--xx_small);
+  overflow: auto;
+  padding: .5% 0;
+}
+
+.forecast .weather-box {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--small);
+  min-width: 5rem;
+  max-width: 8rem;
+  background-color: var(--white);
+  opacity: .7;
+  text-align: center;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.weather-box img {
+  width: 30px;
+  display: block;
+  margin: auto;
+}
+/* forecast end*/
 
 /* loading start*/
 .lds-facebook {

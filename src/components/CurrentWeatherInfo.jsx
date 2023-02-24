@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 
 function CurrentWeatherInfo(props) {
-  const { currentWeather, forecast } = props;
+  const { currentWeather } = props;
   const date = moment().format("MMM Do YY");
   const sunrise = moment
     .utc(currentWeather.sys.sunrise, "X")
@@ -12,10 +12,6 @@ function CurrentWeatherInfo(props) {
     .utc(currentWeather.sys.sunset, "X")
     .add(3600, "seconds")
     .format("HH:mm a");
-
-  console.log("forecast: ", forecast);
-  console.log("currentweather component: ", currentWeather);
-  console.log(currentWeather.main.feels_like);
 
   return (
     <main className="currentWeather">
