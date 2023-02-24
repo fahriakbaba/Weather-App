@@ -1,39 +1,54 @@
 import './App.css';
 import React from 'react';
-import WeatherInfo from './components/WeatherInfo/WeatherInfo';
-import Search from "./components/Search/Search";
+import CurrentWeatherInfo from './components/CurrentWeatherInfo';
+import Search from "./components/Search";
+import Loading from './components/Loading';
+ 
 
 
-const baseURL = "https://api.openweathermap.org/data/2.5/weather";
-const key = "8ba5cc96c36f96b47b4d8afe09192f27";
 
 function App() {
-  const [cityData, setCityData] = React.useState({});
+  const [currentWeather, setCurrentWeather] = React.useState({});
+  const [forecast, setForecast] = React.useState([]);
+  const [isVisible, setIsvisible] = React.useState(true);
   const [searchCity, setSearchCity] = React.useState("");
-  const [weatherIcon, setWeatherIcon] = React.useState(null);
 
   React.useEffect(() => {
-    getWeatherData("izmir");
-  } ,[])
+    getWeatherData("london");
+  }, [])
 
-  const getWeatherData = async(city) => {
-    const url = `${baseURL}?q=${city}&units=metric&appid=${key}&lang=en`;
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-      setCityData(data);
-      setWeatherIcon(`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
-    } catch (error) {
-      console.log(error);
-    }
+  const getWeatherData = async (city) => {
+    setIsvisible(true);
+    const urlArrays = [fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&appid=8ba5cc96c36f96b47b4d8afe09192f27&lang=en&q=${city}`), fetch(`https://api.openweathermap.org/data/2.5/forecast?appid=8ba5cc96c36f96b47b4d8afe09192f27&cnt=40&units=metric&q=${city}`)];
+
+    Promise.all(urlArrays.map(url => url.then(res => res.json()))).then(async(data) => {
+      const currentWeatherAPI = await data[0];
+      const forecastAPI = await data[1];
+      if (data[0].cod === 200) {
+        setCurrentWeather(currentWeatherAPI);
+      }
+      if (data[1].list.length > 0) {
+        setForecast(forecastAPI);
+      }
+    });
+    setTimeout(() => {
+      setIsvisible(false);
+    }, 2000);
+    
   }
- 
+
+  if(isVisible) {
+    return <Loading />
+  }
 
   return (
     <div className="App">
-      <h2>weather </h2>
-      <Search searchCity={searchCity} setSearchCity={setSearchCity} getWeatherData={getWeatherData} />
-      <WeatherInfo icon={weatherIcon} cityInfo={cityData} />
+      <div className="container">
+        <h2>weather app</h2>
+        <Search searchCity={searchCity} setSearchCity={setSearchCity} getWeatherData={getWeatherData} />
+        <CurrentWeatherInfo currentWeather={currentWeather} forecast={forecast}/>
+        {/* <ForeCast forecast={forecast} /> */}
+      </div>
     </div>
   );
 }
@@ -41,20 +56,5 @@ function App() {
 export default App;
 
 
+// `https://openweathermap.org/img/wn/${data[0].weather[0].icon}@2x.png`
 
-
-/*
-https://api.openweathermap.org/data/2.5/weather?q=londra&units=metric&appid=8ba5cc96c36f96b47b4d8afe09192f27&lang=tr
-
- ...
-    "weather": [
-        {
-            "id": 500,
-            "main": "Rain",
-            "description": "light rain",
-            "icon": "10n"
-        }
-    ],
-    ...
-https://openweathermap.org/img/wn/{10}@2x.png
-*/

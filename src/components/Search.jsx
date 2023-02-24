@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Search.module.css";
+ 
 
 function Search({ searchCity, setSearchCity, getWeatherData }) {
   const handleChange = (e) => {
@@ -12,9 +12,9 @@ function Search({ searchCity, setSearchCity, getWeatherData }) {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
-      <input className={styles.text} type="text" value={searchCity} onChange={handleChange} placeholder="Enter your city!" />
-      <button className={styles.btn} onClick={handleSubmit}>Search</button>
+    <form className="form" onSubmit={handleSubmit}>
+      <input type="text" value={searchCity} onChange={handleChange} placeholder="Enter your city!" />
+      <button onClick={handleSubmit}>Search</button>
     </form>
   );
 }
