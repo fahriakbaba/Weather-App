@@ -17,6 +17,6 @@ function Search({ searchCity, setSearchCity, getWeatherData }) {
       <button onClick={handleSubmit}>Search</button>
     </form>
   );
-}
+} 
 
 export default Search;
