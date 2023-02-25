@@ -263,12 +263,24 @@ body {
     height: 32px;
   }
 }
-
 /* loading end*/
 
+/* media query - start */
 @media (max-width: 768px) {
   :root {
     font-size: 10px;
+  }
+  .currentWeather {
+    flex-direction: column;
+  }
+  .currentWeather-left, .currentWeather-right {
+    width: 100%;
+  }
+  .form {
+    width: 100%;
+  }
+  .form input {
+    flex: 1;
   }
 }
 
@@ -277,3 +289,10 @@ body {
     font-size: 14px;
   }
 }
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+}
+/* media query - end */
