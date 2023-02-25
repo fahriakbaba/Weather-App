@@ -226,6 +226,18 @@ body {
   font-weight: 500;
 }
 
+@media (max-width: 768px) {
+  .loading-span {
+    font-size: var(--normal);
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-span {
+    font-size: var(--small);
+  }
+}
+
 .lds-facebook {
   display: inline-block;
   position: relative;
