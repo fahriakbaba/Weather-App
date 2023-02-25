@@ -292,7 +292,19 @@ body {
 
 @media (max-width: 480px) {
   .container {
+    min-width: 300px;
+  }
+  .form {
     width: 100%;
+  }
+  .form input {
+    flex: 4;
+    min-width: 100px;
+    font-size: var(--small);
+  }
+  .form button {
+    flex:1;
+    font-size: var(--small);
   }
 }
 /* media query - end */
