@@ -10,10 +10,13 @@ In the project directory, you can run:
 
 ### How to work this project 
 
+
 - Open *[this project](https://charming-maamoul-27e2c6.netlify.app/)* to view it in your browser or 
 - `git clone https://github.com/fahriakbaba/Weather-App.git`
 - `npm install`
 - `npm start`
+
+
 
 ![Image](./public/images/fullscreen.png)
 ![Image](./public/images/laptop.png)
