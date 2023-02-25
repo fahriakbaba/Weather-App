@@ -8,11 +8,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm install`
-### `npm start`
+### How to work this project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Open *[this project](https://charming-maamoul-27e2c6.netlify.app/)* to view it in your browser or 
+- `git clone https://github.com/fahriakbaba/Weather-App.git`
+- `npm install`
+- `npm start`
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
@@ -26,5 +27,3 @@ You may also see any lint errors in the console.
 ![image](./public/images/mobile.png)
 
 ![image](./public/images/search-loading.png)
-
-You can access *[this project](https://charming-maamoul-27e2c6.netlify.app/)*.
